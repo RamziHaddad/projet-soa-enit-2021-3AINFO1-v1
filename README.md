@@ -28,8 +28,8 @@
 - recommendation:
     - approche 1: 
         - propose pour un utilisateur donné les produits similaires à ceux qu'il a bien noté (similaires textuellement).
-        - utilise le microservice review pour demander la liste des produits appréciés par un utilisateur
-        - utilise le service recherche pour déterminer les produits similaires à un produit.
+        - utilise le microservice review pour demander la liste des produits appréciés par un utilisateur 
+        - utilise le service recherche pour déterminer les produits similaires à un produit ou peut périodiquement demander au catalogue les derniers produits ajoutés ou mis à jour pour les indexer dans sa propre base.
     - approche 2:
         - recommandation avec la stratégie, les gens qui ont acheté X, on aussi acheté Y
         - en recevant en entrée un produit Y, retourne la liste des produits qui ont été les plus achetés dans les memes commandes de X.

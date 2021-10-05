@@ -1,0 +1,14 @@
+version: '3'
+services:
+  solr:
+    image: solr:8
+    ports:
+     - "8983:8983"
+    volumes:
+      - data:/var/solr
+    entrypoint:
+    - bash
+    - "-c"
+    - "precreate-core base-produits; exec solr -f"
+volumes:
+  data:
