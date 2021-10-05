@@ -60,7 +60,7 @@ mailing: 8092
 # Technologies
 
 - données transactionnelles : postgresql (utiliser un schéma différent par microservice)
-- index externe pour le texte (solr)
+- index externe pour le texte (solr) : voir docker-compose dans les microservices concernés et s'inspiter du [tutoriel suivant] (https://www.baeldung.com/apache-solrj)
 - base de données en mémoire : postgresql en v1 et une bd en mémoire en v2
 
 # Prérequis:
