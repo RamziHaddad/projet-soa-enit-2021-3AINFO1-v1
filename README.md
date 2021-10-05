@@ -36,8 +36,7 @@
         - demande périodiquement la liste des dernières commandes au service de commande pour les enregistrer dans sa base.
 - payment: responsable de l'exécution du processus de paiement d'une commande par un utilisateur auprès de la banque.
 - mailing : envoie d'emails (voir [le service mailtrap](https://mailtrap.io/) et [l'exemple](https://quarkus.io/guides/mailer))
-système externe
-- bank : responsable des virements entre les comptes (compte débité et compte crédité).
+- bank (système externe): responsable des virements entre les comptes (compte débité et compte crédité).
 
 # ports
 vérifier les ports de chaque microservice
