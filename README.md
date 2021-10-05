@@ -35,7 +35,7 @@
         - en recevant en entrée un produit Y, retourne la liste des produits qui ont été les plus achetés dans les memes commandes de X.
         - demande périodiquement la liste des dernières commandes au service de commande pour les enregistrer dans sa base.
 - payment: responsable de l'exécution du processus de paiement d'une commande par un utilisateur auprès de la banque.
-- mailing : envoie d'emails (voir [le service mailtrap](https://mailtrap.io/) et [l'exemple] (https://quarkus.io/guides/mailer))
+- mailing : envoie d'emails (voir [le service mailtrap](https://mailtrap.io/) et [l'exemple](https://quarkus.io/guides/mailer))
 système externe
 - bank : responsable des virements entre les comptes (compte débité et compte crédité).
 
@@ -60,7 +60,7 @@ mailing: 8092
 # Technologies
 
 - données transactionnelles : postgresql (utiliser un schéma différent par microservice)
-- index externe pour le texte (solr) : voir docker-compose dans les microservices concernés et s'inspiter du [tutoriel suivant] (https://www.baeldung.com/apache-solrj)
+- index externe pour le texte (solr) : voir docker-compose dans les microservices concernés et s'inspiter du [tutoriel suivant](https://www.baeldung.com/apache-solrj)
 - base de données en mémoire : postgresql en v1 et une bd en mémoire en v2
 
 # Prérequis:
