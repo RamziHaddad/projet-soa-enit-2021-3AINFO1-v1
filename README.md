@@ -14,7 +14,9 @@
     - la réservation de produits d'une commande en attente de paiement.
     - la libération de commandes annulées
     - la préparation des commandes payées pour livraison.
-- search : recherche d'un produit via texte libre
+- search : 
+    - recherche d'un produit via texte libre
+    - recherche des produits similaires à un produit en entrée
 - cart : gestion du panier
 - order : gère le processus de commande de la validation du panier, à la reservation, au paiement jusqu'au déclenchement de la livraison.
 - shipping :  responsable de la livraison d'une commande confirmée (livraison en attente, livraison en cours, livraison effectuée)
@@ -22,9 +24,18 @@
     - donner un avbis
     - donner une note
     - note moyenne d'un produit
+    - permet de détermienr les produits appéciés par un utiliséteur (bien notés)
 - recommendation:
-    - propose pour un utilisateur les produits similaires à ceux qu'il a bien noté (similaires textuellement).
+    - approche 1: 
+        - propose pour un utilisateur donné les produits similaires à ceux qu'il a bien noté (similaires textuellement).
+        - utilise le microservice review pour demander la liste des produits appréciés par un utilisateur
+        - utilise le service recherche pour déterminer les produits similaires à un produit.
+    - approche 2:
+        - recommandation avec la stratégie, les gens qui ont acheté X, on aussi acheté Y
+        - en recevant en entrée un produit Y, retourne la liste des produits qui ont été les plus achetés dans les memes commandes de X.
+        - demande périodiquement la liste des dernières commandes au service de commande pour les enregistrer dans sa base.
 - payment: responsable de l'exécution du processus de paiement d'une commande par un utilisateur auprès de la banque.
+- mailing : envoie d'emails (voir [le service mailtrap](https://mailtrap.io/) et [l'exemple] (https://quarkus.io/guides/mailer))
 système externe
 - bank : responsable des virements entre les comptes (compte débité et compte crédité).
 
@@ -43,6 +54,7 @@ microservices
 - review : 8088
 - search : 8089
 - shipping : 8090
+mailing: 8092
 
 
 # Technologies
