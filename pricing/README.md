@@ -1,3 +1,10 @@
+# cahier des charges
+- gestion des prix réguliers des produits (affecter un prix à un produit et mettre à jour le prix d'un produit plus get d'un prix d'un produit)
+- gestion des promos  (une promo c'est un pourcentage de réduction par rapport au prix régulier et gestion = ajout, mise à jour, activation et désactivation de promo)
+   - promos pour toute une catégorie de produits
+   - promos pour un produit
+- get le prix total d'un ensemble de produits avec quantités (pour déterminer le prix d'un panier ou d'une commande)
+
 # intro-rest Project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
