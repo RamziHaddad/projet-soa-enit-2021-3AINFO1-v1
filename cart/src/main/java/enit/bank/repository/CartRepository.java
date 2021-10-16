@@ -13,7 +13,7 @@ public class CartRepository {
     @Inject
     EntityManager em;
 
-    public Cart insert(CartService cartService) {
+    public Cart insert(Cart cart) {
         return null;
     }
 
