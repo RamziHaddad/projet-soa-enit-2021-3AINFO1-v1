@@ -5,7 +5,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import enit.bank.domain.Cart;
-import enit.bank.service.CartService;
 
 @ApplicationScoped
 public class CartRepository {
