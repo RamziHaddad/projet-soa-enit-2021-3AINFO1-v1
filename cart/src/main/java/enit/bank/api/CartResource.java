@@ -48,6 +48,21 @@ public class CartResource extends PanacheEntity {
     public Cart create(Cart p) throws EntityExistsException {
         return  CartService.create(p);
     }
+    @PUT
+    @Path("/update/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Cart updateCart(@PathParam("id") Integer id, Cart cart) {
+        Cart updatedCart = cartService.update(cart);
+        return updatedCart;
+    }
+
+    @DELETE
+    @Path("/delete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public  ResponseBuilder deleteCart(@PathParam("id") Integer id){
+        cartService.delete(id);
+        return Response.status(Status.OK);
+    }
 
     
 }
