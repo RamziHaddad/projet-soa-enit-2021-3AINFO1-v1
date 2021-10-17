@@ -7,7 +7,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import enit.bank.domain.Orders;
+import enit.bank.domain.Order;
 import enit.bank.service.OrdersService;
 
 
@@ -23,13 +23,13 @@ public class OrdersResource {
 
     @POST
     @Path("/create")
-    public Orders createOrder(Orders order) {
+    public Order createOrder(Order order) {
         return ordersService.create(order);
     }
 
     @GET
     @Path("/{id}")
-    public Orders findOrderById(@PathParam("id") Long id) {
+    public Order findOrderById(@PathParam("id") Long id) {
         return ordersService.findById(id);
     }
 
