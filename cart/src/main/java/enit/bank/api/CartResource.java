@@ -1,8 +1,6 @@
 package enit.bank.api;
 
 import javax.inject.Inject;
-import javax.persistence.EntityExistsException;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -18,6 +16,7 @@ import javax.ws.rs.core.Response.Status;
 import enit.bank.domain.Cart;
 import enit.bank.service.CartService;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import enit.bank.exceptions.*;
 
 
 @Path("/cart")
@@ -45,8 +44,8 @@ public class CartResource extends PanacheEntity {
     
     @POST
     @Path("/create")
-    public Cart create(Cart p) throws EntityExistsException {
-        return  CartService.create(p);
+    public Cart create(Cart p) throws CartAlreadyExistsException {
+        return  cartService.create(p);
     }
     @PUT
     @Path("/update/{id}")
@@ -60,7 +59,7 @@ public class CartResource extends PanacheEntity {
     @Path("/delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public  ResponseBuilder deleteCart(@PathParam("id") Integer id){
-        cartService.delete(id);
+        cartService.deleteCart(id);
         return Response.status(Status.OK);
     }
 

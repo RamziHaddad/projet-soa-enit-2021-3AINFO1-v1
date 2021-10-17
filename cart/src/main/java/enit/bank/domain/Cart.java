@@ -17,7 +17,7 @@ public class Cart extends PanacheEntity{
     private int quantity;
 
     public Cart(){}
-     
+
     public Integer getId() {
         return id;
     }
