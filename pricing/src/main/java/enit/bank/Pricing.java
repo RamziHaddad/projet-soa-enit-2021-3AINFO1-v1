@@ -86,7 +86,29 @@ public class Pricing {
         return Response.ok().entity("promo categorie enabled").build();
     }
 
+ @PUT
+    @Path("/pricing/{productId}/{newPrice}")
+    public Response updatePrice(@PathParam("productId") Integer id, @PathParam("newPrice") float newPrice) {
+        getCollection().updateOne(Filters.eq("id", id), Updates.set("price", newPrice));
+        return Response.ok().entity("product price changed").build();
+    }
 
+    @GET
+    @Path("pricing/{id}")
+    public Response getPriceProduct(@PathParam("id") Integer id) {
+        Document document = (Document) getCollection().find(Filters.eq("id", id)).first();
+        return Response.ok().entity(document.get("price")).build();
+
+    }
+
+    @POST
+    @Path("pricing/promo/{id}/{percentage}")
+    public Response setProductPromo(@PathParam("id") Integer id, @PathParam("percentage") float percentage) {
+
+        getCollection().updateOne(Filters.eq("id", id), Updates.set("promoValue", percentage));
+        return Response.ok().entity("product promo enabled").build();
+
+    }
    
 
    
