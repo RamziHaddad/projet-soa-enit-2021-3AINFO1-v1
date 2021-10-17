@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 
 
 
-@Path("/api/persons")
+@Path("/api/payments")
 public class TestResource {
 
    
@@ -17,5 +17,6 @@ public class TestResource {
     public String hello() {
         return "Hello RESTEasy";
     }
+
 
 }
