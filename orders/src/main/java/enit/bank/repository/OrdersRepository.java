@@ -11,11 +11,11 @@ public class OrdersRepository {
     @Inject
     EntityManager em;
     
-    public Order insert() {
+    public Orders insert() {
         return null;
     }
 
-    public Order findById(Long id) {
+    public Orders findById(Long id) {
         return null;
     }
 
