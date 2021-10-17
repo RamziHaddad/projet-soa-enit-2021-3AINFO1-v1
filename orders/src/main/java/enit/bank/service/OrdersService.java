@@ -9,12 +9,12 @@ public class OrdersService {
         this.ordersRepository=ordersRepository;
     }
 
-    public Orders create(Orders orders) {
+    public Order create(Order orders) {
         //verifier le reste des fonctions
         return ordersRepository.insert(orders);
     }
 
-    public Orders findById(Long id) {
+    public Order findById(Long id) {
         return null;
     }
 
