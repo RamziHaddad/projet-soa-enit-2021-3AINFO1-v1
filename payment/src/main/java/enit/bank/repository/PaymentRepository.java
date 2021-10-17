@@ -11,11 +11,10 @@ import javax.transaction.Transactional;
 
 import enit.bank.domain.Payment;
 import enit.bank.exceptions.EntityAlreadyExistsException;
-import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 @ApplicationScoped
-public class PaymentRepository implements PanacheRepository<Payment> {
-  /*  @Inject
+public class PaymentRepository  {
+    @Inject
     EntityManager em;
     public List<Payment> findAllPayments(){
         return em.createQuery("from Payments",Payment.class).getResultList();
@@ -39,23 +38,9 @@ public class PaymentRepository implements PanacheRepository<Payment> {
         }
         throw new EntityAlreadyExistsException("person has already an id");
     }
-    @Transactional
-    public Payment updatePayment(Payment paymentForAdd) throws EntityNotFoundException{
-        try{
-            return em.merge(paymentForAdd);
-        }catch(IllegalArgumentException e){
+    
 
-        }
-        throw new EntityNotFoundException("cannot find Payment");
-    }
-
-    @Transactional
-    public void deletePayment(Long id){
-        Payment payment = em.find(Payment.class, id);
-        if(payment!=null){
-            em.remove(payment);
-        }
-    }*/
+   
 
     
 }
