@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import java.util.*;
 
 @Entity
-@Table(name = "Recommendations")
+@Table(name = "Recommendation")
 public class Recommendation {
     @Id
     private UUID id;
