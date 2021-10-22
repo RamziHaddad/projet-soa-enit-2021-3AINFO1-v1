@@ -3,10 +3,13 @@ package enit.bank.Domain;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.apache.solr.client.solrj.beans.Field;
+
 import java.util.*;
 
 @Entity
-@Table(name = "Recommendation")
+@Table(name = "Recommendations")
 public class Recommendation {
     @Id
     private UUID id;
@@ -14,6 +17,23 @@ public class Recommendation {
     String productId2;
     int nbrOccurrences;
 
+    @Field("id")
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    @Field("setProductId1")
+    public void setProductId1(String productId1) {
+        this.productId1 = productId1;
+    }
+    @Field("setProductId2")
+    public void setProductId2(String productId2) {
+        this.productId2 = productId2;
+    }
+    @Field("setNbrOccurrences")
+    public void setNbrOccurrences(int nbrOccurrences) {
+        this.nbrOccurrences += nbrOccurrences;
+    }
     public Recommendation() {
     }
 
@@ -25,9 +45,6 @@ public class Recommendation {
         ;
     }
 
-    public void setNbrOccurrences(int nbrOccurrences) {
-        this.nbrOccurrences += nbrOccurrences;
-    }
 
     public int getNbrOccurrences() {
         return nbrOccurrences;
@@ -49,7 +66,11 @@ public class Recommendation {
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         return this.productId1 + "," + this.productId2 + "," + this.nbrOccurrences;
     }
+    public UUID getId() {
+        return id;
+    }
+
+
 }
