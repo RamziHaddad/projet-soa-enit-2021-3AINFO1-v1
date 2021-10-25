@@ -10,8 +10,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 import javax.ws.rs.core.Response.Status;
 
-import org.zeineb.domain.Cart;
-import  org.zeineb.repository.CartRepository;
+import org.cart.domain.Cart;
+import  org.cart.repository.CartRepository;
 
 @Path("/cart")
 public class CartResource {
