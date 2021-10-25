@@ -1,45 +1,38 @@
 package enit.cart.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
-@Table(name="Cart")
-public class Cart extends PanacheEntity{
-
-    @Id
-    private Integer id;
-    private Long productId;
-    private int quantity;
-
-    public Cart(){}
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    } 
+public class Cart {
     
-}   
+    private String id;
+    private List<Item> items = new ArrayList<>();
+
+    public Cart() {
+    }
+
+    public List<Item> cartContent() {
+        return items;
+    }
+
+    public Cart add(Item item) {
+        items.add(item);
+        return this;
+    }
+
+    public Cart remove(Item item) {
+        items.remove(item);
+        return this;
+    }
+
+    public String toString() {
+        return "Cart{" +
+                "id='" + id + '\'' +
+                ", items=" + items +
+                '}';
+    }
+
+} 
