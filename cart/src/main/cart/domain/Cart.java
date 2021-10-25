@@ -1,4 +1,4 @@
-package enit.bank.domain;
+package enit.cart.domain;
 
 
 import javax.persistence.Entity;
