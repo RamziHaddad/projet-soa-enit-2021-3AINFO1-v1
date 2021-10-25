@@ -1,4 +1,4 @@
-package enit.bank.service;
+package enit.cart.service;
 
 import javax.inject.Inject;
 

@@ -1,4 +1,4 @@
-package enit.bank.exceptions;
+package enit.cart.exceptions;
 
 public class ItemNotFoundException extends Exception{
     public ItemNotFoundException(String msg) {

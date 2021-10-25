@@ -1,4 +1,4 @@
-package org.cart.service;
+package enit.cart.service;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
