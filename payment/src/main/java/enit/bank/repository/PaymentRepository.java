@@ -14,11 +14,13 @@ import enit.bank.exceptions.EntityAlreadyExistsException;
 
 @ApplicationScoped
 public class PaymentRepository  {
+
     @Inject
     EntityManager em;
     public List<Payment> findAllPayments(){
         return em.createQuery("from Payments",Payment.class).getResultList();
     }
+    
     public Payment findPaymentById(Long id) throws EntityNotFoundException{
         Payment payment = em.find(Payment.class, id);
         if(payment!=null){
@@ -26,6 +28,7 @@ public class PaymentRepository  {
         }
         throw new EntityNotFoundException("cannot find payment");
     }
+
     @Transactional
     public Payment addPayment(Payment paymentForAdd) throws EntityAlreadyExistsException{
         if(paymentForAdd.getId() == null){
