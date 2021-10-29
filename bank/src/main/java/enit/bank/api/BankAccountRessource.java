@@ -5,9 +5,12 @@ import java.math.BigDecimal;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import enit.bank.exceptions.EntityNotFoundException;
 import enit.bank.services.BankService;
@@ -27,12 +30,14 @@ public class BankAccountRessource {
 
     
     @GET
-    public Response getAccountByNumber(String number) throws EntityNotFoundException {
+    @Path("/{number}")
+    public Response getAccountByNumber(@PathParam("number") String number) throws EntityNotFoundException {
         return Response.ok(bankService.getBankAccountByAccountNumber(number)).build();
     }
 
     @GET
-    public Response withdrawMoneyFromAccount(BigDecimal money, Long id){
+    @Path("/{id}")
+    public Response withdrawMoneyFromAccount(@RequestBody BigDecimal money, @PathParam("id") Long id){
         return Response.ok(this.bankService.withdrawMoneyFromAccount(money, id)).build();
     }
 }
