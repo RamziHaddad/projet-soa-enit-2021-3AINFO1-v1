@@ -1,4 +1,4 @@
-package enit.bank.services.dto;
+package enit.bank.service.dto;
 
 import java.math.BigDecimal;
 
@@ -8,9 +8,9 @@ import enit.bank.domain.enumeration.AccountType;
 public class BankAccountDTO {
     private Long id;
 
-    private String accountNumber;
-    private AccountType accountType;
-    private AccountStatus accountStatus;
+    private String number;
+    private AccountType type;
+    private AccountStatus status;
     private BigDecimal availableBalance;
     
     public BankAccountDTO() {
@@ -18,9 +18,9 @@ public class BankAccountDTO {
     
     public BankAccountDTO(Long id, String number, AccountType type, AccountStatus status, BigDecimal availableBalance) {
         this.id = id;
-        this.accountNumber = number;
-        this.accountType = type;
-        this.accountStatus = status;
+        this.number = number;
+        this.type = type;
+        this.status = status;
         this.availableBalance = availableBalance;
     }
 
@@ -31,22 +31,22 @@ public class BankAccountDTO {
         this.id = id;
     }
     public String getNumber() {
-        return accountNumber;
+        return number;
     }
     public void setNumber(String number) {
-        this.accountNumber = number;
+        this.number = number;
     }
     public AccountType getType() {
-        return accountType;
+        return type;
     }
     public void setType(AccountType type) {
-        this.accountType = type;
+        this.type = type;
     }
     public AccountStatus getStatus() {
-        return accountStatus;
+        return status;
     }
     public void setStatus(AccountStatus status) {
-        this.accountStatus = status;
+        this.status = status;
     }
     public BigDecimal getAvailableBalance() {
         return availableBalance;
@@ -54,5 +54,4 @@ public class BankAccountDTO {
     public void setAvailableBalance(BigDecimal availableBalance) {
         this.availableBalance = availableBalance;
     }
-
 }

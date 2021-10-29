@@ -1,7 +1,7 @@
 package enit.bank.domain;
 
 import java.io.Serializable;
-
+import java.math.BigDecimal;
 import java.time.Instant;
 
 import javax.persistence.Column;
@@ -17,6 +17,8 @@ public class Payment implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    private BigDecimal amount;
     @Column(name = "payment_mode")
     private String paymentMode;
 
@@ -30,23 +32,30 @@ public class Payment implements Serializable{
     private Long secretCode;
     
     @Column(name = "expiration_date")
-    private Instant ExpirationDate;
-    
+    private Instant expirationDate;
+
+    @Column (name ="from_account_number")
+    private String fromAccountNumber;
     
     public Payment() {
     }
-    
 
 
-    public Payment(Long id, String paymentMode, String cartName, Long cartNumber, Long secretCode,
-    Instant expirationDate) {
+    public Payment(Long id, BigDecimal amount, String paymentMode, String cartName, Long cartNumber, Long secretCode,
+            Instant expirationDate, String fromAccountNumber) {
         this.id = id;
+        this.amount = amount;
         this.paymentMode = paymentMode;
         this.cartName = cartName;
         this.cartNumber = cartNumber;
         this.secretCode = secretCode;
-        ExpirationDate = expirationDate;
+        this.expirationDate = expirationDate;
+        this.fromAccountNumber = fromAccountNumber;
     }
+
+
+
+
 
 
 
@@ -80,6 +89,18 @@ public class Payment implements Serializable{
     }
 
 
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+
+
     public Long getCartNumber() {
         return cartNumber;
     }
@@ -101,21 +122,30 @@ public class Payment implements Serializable{
 
 
     public Instant getExpirationDate() {
-        return ExpirationDate;
+        return expirationDate;
     }
 
 
     public void setExpirationDate(Instant expirationDate) {
-        ExpirationDate = expirationDate;
+        this.expirationDate = expirationDate;
+    }
+    
+
+    public String getFromAccountNumber() {
+        return fromAccountNumber;
     }
 
+
+    public void setFromAccountNumber(String fromAccountNumber) {
+        this.fromAccountNumber = fromAccountNumber;
+    }
 
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((ExpirationDate == null) ? 0 : ExpirationDate.hashCode());
+        result = prime * result + ((expirationDate == null) ? 0 : expirationDate.hashCode());
         result = prime * result + ((cartName == null) ? 0 : cartName.hashCode());
         result = prime * result + ((cartNumber == null) ? 0 : cartNumber.hashCode());
         result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -135,10 +165,10 @@ public class Payment implements Serializable{
         if (getClass() != obj.getClass())
             return false;
         Payment other = (Payment) obj;
-        if (ExpirationDate == null) {
-            if (other.ExpirationDate != null)
+        if (expirationDate == null) {
+            if (other.expirationDate != null)
                 return false;
-        } else if (!ExpirationDate.equals(other.ExpirationDate))
+        } else if (!expirationDate.equals(other.expirationDate))
             return false;
         if (cartName == null) {
             if (other.cartName != null)
