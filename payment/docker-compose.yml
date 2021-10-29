@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_DB: payment
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: azerty
     volumes:
       - postgresql_bin:/usr/lib/postgresql
       - ./persons-schema-and-data.sql:/docker-entrypoint-initdb.d/init_db.sql
@@ -20,7 +20,7 @@ services:
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
-      PGADMIN_DEFAULT_PASSWORD: postgres
+      PGADMIN_DEFAULT_PASSWORD: azerty
       PGADMIN_LISTEN_PORT: 5050
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:

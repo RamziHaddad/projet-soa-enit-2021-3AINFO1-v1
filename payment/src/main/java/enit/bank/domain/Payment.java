@@ -1,7 +1,8 @@
 package enit.bank.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
+
+import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +30,7 @@ public class Payment implements Serializable{
     private Long secretCode;
     
     @Column(name = "expiration_date")
-    private Date ExpirationDate;
+    private Instant ExpirationDate;
     
     
     public Payment() {
@@ -38,7 +39,7 @@ public class Payment implements Serializable{
 
 
     public Payment(Long id, String paymentMode, String cartName, Long cartNumber, Long secretCode,
-            Date expirationDate) {
+    Instant expirationDate) {
         this.id = id;
         this.paymentMode = paymentMode;
         this.cartName = cartName;
@@ -99,12 +100,12 @@ public class Payment implements Serializable{
     }
 
 
-    public Date getExpirationDate() {
+    public Instant getExpirationDate() {
         return ExpirationDate;
     }
 
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(Instant expirationDate) {
         ExpirationDate = expirationDate;
     }
 
