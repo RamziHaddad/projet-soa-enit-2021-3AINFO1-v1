@@ -1,7 +1,7 @@
 package enit.bank.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
+
 import java.time.Instant;
 
 import javax.persistence.Column;

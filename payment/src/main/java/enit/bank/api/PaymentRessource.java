@@ -1,6 +1,7 @@
 package enit.bank.api;
 
-import java.util.List;
+
+import java.math.BigDecimal;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -13,15 +14,20 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import enit.bank.domain.Payment;
 import enit.bank.exceptions.EntityAlreadyExistsException;
 import enit.bank.exceptions.EntityNotFoundException;
+import enit.bank.service.BankService;
 import enit.bank.service.PaymentService;
+import enit.bank.service.dto.PaymentForAddDTO;
 
 @Path("/api/payments")
 public class PaymentRessource {
-    
+    @RestClient
+    BankService bankService; 
+
     @Inject
     PaymentService paymentService;
    
@@ -34,20 +40,22 @@ public class PaymentRessource {
 
     
     @GET
-    public List<Payment> getAllPayments() {
-        return  paymentService.getAllPayments();
+    public Response getAllPayments() {
+        return  Response.ok(this.paymentService.getAllPayments()).build();
     }
 
     @GET
     @Path("/{id}")
-    public Payment getPaymentById(@PathParam("id") Long id) throws EntityNotFoundException {
-        return  paymentService.getPaymentById(id);
+    public Response getPaymentById(@PathParam("id") Long id) throws EntityNotFoundException {
+        return  Response.ok(this.paymentService.getPaymentById(id)).build();
     }
 
     @POST
     @Transactional
-    public Payment createPayment(Payment payment) throws EntityAlreadyExistsException {
-       return this.paymentService.addPayment(payment);
+    public Response createPayment(@RequestBody PaymentForAddDTO paymentForAddDTO) throws EntityAlreadyExistsException {
+       Payment paymentAdded= this.paymentService.addPayment(paymentForAddDTO);
+       BigDecimal remainingAmount = this.bankService.withdrawMoneyFromAccount(money, id)
+       return Response.ok(paymentAdded).build();
     }
 
 

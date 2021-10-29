@@ -2,7 +2,7 @@ package enit.bank.service.dto;
 
 import java.time.Instant;
 
-public class PaymentFoaAddDTO {
+public class PaymentForAddDTO {
     private String paymentMode;
 
     private String cartName;
@@ -11,11 +11,11 @@ public class PaymentFoaAddDTO {
     private Long secretCode;
     private Instant ExpirationDate;
     
-    public PaymentFoaAddDTO() {
+    public PaymentForAddDTO() {
     }
 
     
-    public PaymentFoaAddDTO(String paymentMode, String cartName, Long cartNumber, Long secretCode,
+    public PaymentForAddDTO(String paymentMode, String cartName, Long cartNumber, Long secretCode,
             Instant expirationDate) {
         this.paymentMode = paymentMode;
         this.cartName = cartName;
