@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import enit.bank.domain.BankAccount;
-import enit.bank.domain.enumeration.AccountStatus;
 import enit.bank.exceptions.EntityNotFoundException;
 
 @ApplicationScoped
@@ -35,7 +34,7 @@ public class BankRepository {
     public BigDecimal withdrawMoneyFromAccount(BigDecimal money, Long id){
         BankAccount bankAccount = em.find(BankAccount.class, id);
         if(bankAccount!=null){
-            if (bankAccount.getAvailableBalance().compareTo(money)==1 && bankAccount.getStatus()==AccountStatus.ACTIVE){
+            if (bankAccount.getAvailableBalance().compareTo(money)==1){
                 bankAccount.setAvailableBalance(bankAccount.getAvailableBalance().subtract(money));
                 return bankAccount.getAvailableBalance();
             } 
