@@ -26,10 +26,10 @@ import enit.bank.service.dto.PaymentForAddDTO;
 
 @Path("/api/payments")
 public class PaymentRessource {
-   /* @Inject
+    @Inject
     @RestClient
     BankService remoteBankService; 
-*/
+
     @Inject
     PaymentService paymentService;
    
@@ -53,14 +53,14 @@ public class PaymentRessource {
         return  Response.ok(this.paymentService.getPaymentById(id)).build();
     }
 
-    /*@POST
+    @POST
     @Transactional
     public Response createPayment(@RequestBody PaymentForAddDTO paymentForAddDTO) throws EntityAlreadyExistsException {
        BankAccountDTO bankAccountDTO= this.remoteBankService.getBankAccountByAccountNumber(paymentForAddDTO.getFromAccountNumber());
        this.remoteBankService.withdrawMoneyFromAccount(paymentForAddDTO.getAmount(), bankAccountDTO.getId());
        Payment paymentAdded= this.paymentService.addPayment(paymentForAddDTO);
        return Response.ok(paymentAdded).build();
-    }*/
+    }
 
 
 
