@@ -23,21 +23,21 @@ public class BankAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String accountNumber;
+    private String number;
 
     @Enumerated(EnumType.STRING)
-    private AccountType accountType;
+    private AccountType type;
 
     @Enumerated(EnumType.STRING)
-    private AccountStatus accountStatus;
+    private AccountStatus status;
 
     private BigDecimal availableBalance;
 
     public BankAccount(Long id, String number, AccountType type, AccountStatus status, BigDecimal availableBalance) {
         this.id = id;
-        this.accountNumber = number;
-        this.accountType = type;
-        this.accountStatus = status;
+        this.number = number;
+        this.type = type;
+        this.status = status;
         this.availableBalance = availableBalance;
     }
 
@@ -53,27 +53,27 @@ public class BankAccount {
     }
 
     public String getNumber() {
-        return accountNumber;
+        return number;
     }
 
     public void setNumber(String number) {
-        this.accountNumber = number;
+        this.number = number;
     }
 
     public AccountType getType() {
-        return accountType;
+        return type;
     }
 
     public void setType(AccountType type) {
-        this.accountType = type;
+        this.type = type;
     }
 
     public AccountStatus getStatus() {
-        return accountStatus;
+        return status;
     }
 
     public void setStatus(AccountStatus status) {
-        this.accountStatus = status;
+        this.status = status;
     }
 
     public BigDecimal getAvailableBalance() {
