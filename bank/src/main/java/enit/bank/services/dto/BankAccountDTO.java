@@ -8,9 +8,9 @@ import enit.bank.domain.enumeration.AccountType;
 public class BankAccountDTO {
     private Long id;
 
-    private String number;
-    private AccountType type;
-    private AccountStatus status;
+    private String accountNumber;
+    private AccountType accountType;
+    private AccountStatus accountStatus;
     private BigDecimal availableBalance;
     
     public BankAccountDTO() {
@@ -18,9 +18,9 @@ public class BankAccountDTO {
     
     public BankAccountDTO(Long id, String number, AccountType type, AccountStatus status, BigDecimal availableBalance) {
         this.id = id;
-        this.number = number;
-        this.type = type;
-        this.status = status;
+        this.accountNumber = number;
+        this.accountType = type;
+        this.accountStatus = status;
         this.availableBalance = availableBalance;
     }
 
@@ -31,22 +31,22 @@ public class BankAccountDTO {
         this.id = id;
     }
     public String getNumber() {
-        return number;
+        return accountNumber;
     }
     public void setNumber(String number) {
-        this.number = number;
+        this.accountNumber = number;
     }
     public AccountType getType() {
-        return type;
+        return accountType;
     }
     public void setType(AccountType type) {
-        this.type = type;
+        this.accountType = type;
     }
     public AccountStatus getStatus() {
-        return status;
+        return accountStatus;
     }
     public void setStatus(AccountStatus status) {
-        this.status = status;
+        this.accountStatus = status;
     }
     public BigDecimal getAvailableBalance() {
         return availableBalance;
