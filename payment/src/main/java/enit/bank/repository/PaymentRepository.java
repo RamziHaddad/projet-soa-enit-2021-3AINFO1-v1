@@ -18,7 +18,7 @@ public class PaymentRepository  {
     @Inject
     EntityManager em;
     public List<Payment> findAllPayments(){
-        return em.createQuery("from Payments",Payment.class).getResultList();
+        return em.createQuery("from payments",Payment.class).getResultList();
     }
     
     public Payment findPaymentById(Long id) throws EntityNotFoundException{
