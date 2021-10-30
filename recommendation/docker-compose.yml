@@ -9,7 +9,7 @@ services:
     entrypoint:
       - bash
       - '-c'
-      - 'precreate-core base-produits; exec solr -f'
+      - 'precreate-core recommendation; exec solr -f'
 
   db:
     container_name: db

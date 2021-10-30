@@ -26,14 +26,17 @@ public class Recommendation {
     public void setProductId1(String productId1) {
         this.productId1 = productId1;
     }
+
     @Field("setProductId2")
     public void setProductId2(String productId2) {
         this.productId2 = productId2;
     }
+
     @Field("setNbrOccurrences")
     public void setNbrOccurrences(int nbrOccurrences) {
         this.nbrOccurrences += nbrOccurrences;
     }
+
     public Recommendation() {
     }
 
@@ -45,6 +48,13 @@ public class Recommendation {
         ;
     }
 
+    public Recommendation(String productId1, String productId2, int nbrOccurrences) {
+        super();
+        this.productId1 = productId1;
+        this.productId2 = productId2;
+        this.nbrOccurrences = nbrOccurrences;
+        ;
+    }
 
     public int getNbrOccurrences() {
         return nbrOccurrences;
@@ -68,9 +78,9 @@ public class Recommendation {
     public String toString() {
         return this.productId1 + "," + this.productId2 + "," + this.nbrOccurrences;
     }
+
     public UUID getId() {
         return id;
     }
-
 
 }
