@@ -50,6 +50,6 @@ COPY --chown=1001 target/quarkus-app/quarkus/ /deployments/quarkus/
 
 EXPOSE 8080
 USER 1001
-
+ADD catalog_bd.sql /docker-entrypoint-initdb.d/
 ENTRYPOINT [ "/deployments/run-java.sh" ]
 
