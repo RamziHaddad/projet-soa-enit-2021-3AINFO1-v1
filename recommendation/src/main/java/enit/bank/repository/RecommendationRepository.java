@@ -49,7 +49,8 @@ public class RecommendationRepository {
         List<Recommendation> dataList = binder.getBeans(Recommendation.class, docList);
 
         if (dataList != null) {
-            return dataList;
+             Collections.sort(dataList, new SortbyNbOcc());
+             return dataList.subList(0, 2);// get only three element (Top) of recommendation
         }
         throw new EntityNotFoundException("cannot find recommendation");
     }

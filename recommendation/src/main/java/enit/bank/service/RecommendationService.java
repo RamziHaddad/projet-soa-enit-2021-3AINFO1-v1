@@ -26,7 +26,9 @@ public class RecommendationService {
     public Recommendation findById(UUID id) throws EntityNotFoundException {
         return recommendationsRepo.findById(id);
     }
-
+    public List<Recommendation> findByIdProd(String idproduct) throws EntityNotFoundException, SolrServerException, IOException {
+        return recommendationsRepo.findByIdProd(idproduct);
+    }
     public Recommendation create(Recommendation r)
             throws EntityAlreadyExistsException, IOException, SolrServerException {
         return recommendationsRepo.insert(r);
