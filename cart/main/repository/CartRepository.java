@@ -1,6 +1,6 @@
-package enit.bank.repository;
+package enit.cart.repository;
 
-import enit.bank.domain.Cart;
+import enit.cart.domain.Cart;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
