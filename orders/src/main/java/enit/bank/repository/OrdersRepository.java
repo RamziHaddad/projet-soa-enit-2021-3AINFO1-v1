@@ -11,7 +11,7 @@ public class OrdersRepository {
     @Inject
     EntityManager em;
     
-    public Order insert() {
+    public Order insert(Order order) {
         return null;
     }
 

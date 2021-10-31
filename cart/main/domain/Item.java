@@ -1,3 +1,5 @@
+package enit.cart.domain;
+
 import javax.persistence.Entity;
 
 @Entity
