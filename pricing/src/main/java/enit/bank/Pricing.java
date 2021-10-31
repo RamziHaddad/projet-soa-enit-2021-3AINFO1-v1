@@ -51,6 +51,39 @@ public class Pricing {
     // public float getPriceCart(@PathParam("id") Integer id) {
 
     // }
+    
+    @PUT
+    @Path("pricing/promo/{id}/{percentage}")
+    public Response updateProductPromo(@PathParam("id") Integer id, @PathParam("percentage") float percentage) {
+
+        getCollection().updateOne(Filters.eq("id", id), Updates.set("promoValue", percentage));
+        return Response.ok().entity("product promo changed").build();
+
+    }
+
+    @POST
+    @Path("pricing/desactivate-promo/{id}")
+    public Response desactivateProductPromo(@PathParam("id") Integer id) {
+        getCollection().updateOne(Filters.eq("id", id), Updates.set("promo", false));
+        return Response.ok().entity("product promo desactivated").build();
+    }
+
+    @POST
+    @Path("pricing/activate-promo/{id}")
+    public Response activateProductPromo(@PathParam("id") Integer id) {
+        getCollection().updateOne(Filters.eq("id", id), Updates.set("promo", true));
+        return Response.ok().entity("product promo activated").build();
+    }
+
+    @POST
+    @Path("pricing/promocategorie/{promoValue}/{categorie}")
+    public Response setCategoriePromo(@PathParam("categorie") String categorie,
+            @PathParam("promoValue") float promoValue) {
+        getCollection().updateMany(Filters.eq("categorie", categorie), Updates.set("promo", true));
+        getCollection().updateMany(Filters.eq("categorie", categorie), Updates.set("promoValue", promoValue));
+
+        return Response.ok().entity("promo categorie enabled").build();
+    }
 
    
 
